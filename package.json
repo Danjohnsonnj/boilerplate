@@ -5,11 +5,13 @@
   "author": "Daniel Johnson",
   "license": "none",
   "scripts": {
-    "copy": "cpx 'src/**/*.{html,css}' './dist'", 
-    "copy:watch": "cpx 'src/**/*.{html,css}' './dist' --watch", 
-    "dev": "npm run copy && webpack --mode development",
-    "build": "npm run copy && webpack --mode production",
-    "watch": "npm run copy:watch & webpack --mode development --watch"
+    "copy": "cpx 'src/*.html' './dist'",
+    "copy:watch": "cpx 'src/*.html' './dist' --watch",
+    "styles": "less-watch-compiler --run-once src dist",
+    "styles:watch": "less-watch-compiler src dist",
+    "dev": "npm run styles && npm run copy && webpack --mode development",
+    "build": "npm run styles && npm run copy && webpack --mode production",
+    "watch": "npm run styles:watch & npm run copy:watch & webpack --mode development --watch"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -20,6 +22,7 @@
     "css-loader": "^1.0.0",
     "less": "^3.7.1",
     "less-loader": "^4.1.0",
+    "less-watch-compiler": "^1.11.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
