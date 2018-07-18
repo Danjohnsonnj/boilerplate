@@ -5,8 +5,8 @@
   "author": "Daniel Johnson",
   "license": "none",
   "scripts": {
-    "copy": "cpx './src/index.html' './dist'", 
-    "copy:watch": "cpx './src/index.html' './dist' --watch", 
+    "copy": "cpx 'src/**/*.{html,css}' './dist'", 
+    "copy:watch": "cpx 'src/**/*.{html,css}' './dist' --watch", 
     "dev": "npm run copy && webpack --mode development",
     "build": "npm run copy && webpack --mode production",
     "watch": "npm run copy:watch & webpack --mode development --watch"
