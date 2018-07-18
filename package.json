@@ -1,0 +1,18 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate with Webpack and Babel",
+  "author": "Daniel Johnson",
+  "license": "none",
+  "scripts": {
+    "build": "webpack --display-modules",
+    "watch": "webpack --watch --hide-modules"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^6.0.0",
+    "webpack": "^4.16.1"
+  }
+}
