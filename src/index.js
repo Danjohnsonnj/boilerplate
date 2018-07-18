@@ -1,3 +1,4 @@
+import './styles/reset.less'
 import './styles/main.less'
 
 const myArray = new Array('foo', 'bar', 'baz',)
