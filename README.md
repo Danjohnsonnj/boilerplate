@@ -3,7 +3,7 @@ This is a very basic boilerplate which uses __webpack 4__ and __Babel 6__ to bui
 
 Since my [company](https://squarespace.com) uses __LESS__ as a CSS pre-processor, I've become quite used to it, so I included *less* and *less-watch-compiler* to handle the conversion. I also want all of the source files to be located in a single directory (*src*, natch) so I've included *cpx* to handle moving the HTML into *dist*, the target for the LESS compiler and __webpack__.
 
-Though I did not include any web server since I like VS Code's [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), the NPM scripts do include *watch* functionality to make it even easier to see the changes. Speaking of which:
+Though I **_did not include any web server_** -- since I like VS Code's [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) -- the NPM scripts do include *watch* functionality to make it even easier to see the changes. Speaking of which:
 
 ## NPM Scripts
 ### The ones you'll use
