@@ -1,30 +1,25 @@
 {
   "name": "boilerplate",
-  "version": "0.0.1",
   "description": "Boilerplate with Webpack and Babel",
   "author": "Daniel Johnson",
-  "license": "none",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "copy": "cpx 'src/*.html' './dist'",
-    "copy:watch": "cpx 'src/*.html' './dist' --watch",
-    "styles": "less-watch-compiler --run-once src dist",
-    "styles:watch": "less-watch-compiler src dist",
-    "lint": "eslint src",
-    "dev": "npm run lint && npm run styles && npm run copy && webpack --mode development",
-    "build": "npm run lint && npm run styles && npm run copy && webpack --mode production",
-    "watch": "npm run lint && (npm run styles:watch & npm run copy:watch & webpack --mode development --watch)"
+    "create": "node .",
+    "create:full": "node . full"
+  },
+  "dependencies": {
+    "cpx": "^1.5.0",
+    "inquirer": "^6.2.2",
+    "json-beautify": "^1.0.1",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "babel-preset-env": "^1.7.0",
-    "cpx": "^1.5.0",
-    "eslint": "^5.13.0",
-    "less": "^3.9.0",
-    "less-watch-compiler": "^1.13.0",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.3",
-    "webpack-command": "^0.4.2"
+    "eslint": "^5.13.0"
   }
 }
