@@ -2,7 +2,6 @@ const inquirer = require('inquirer')
 const sh = require('shelljs')
 const project = require('./project-package')
 const beautify = require('json-beautify')
-const cpx = require('cpx')
 const { questions, doesProjectExist, } = require('./inquirer-questions')
 
 module.exports = {
@@ -25,10 +24,9 @@ module.exports = {
         return answers
       }
       sh.echo(`Removing existing '${FOLDER_NAME}' folder.`)
+      sh.rm('-rf', `./${FOLDER_NAME}`)
     }
 
-    sh.set('-e')
-    sh.rm('-rf', `./${FOLDER_NAME}`)
     sh.echo(`Creating ${PROJECT_NAME !== '' ? "'" + PROJECT_NAME + "'" : 'new project'} in '${FOLDER_NAME}'.`)
     sh.mkdir(`./${FOLDER_NAME}`)
     sh.touch(`./${FOLDER_NAME}/package.json`)
@@ -38,14 +36,12 @@ module.exports = {
 `, '.gitignore')
 
     sh.echo(`Copying files to '${FOLDER_NAME}'.`)
-    cpx.copySync('./setup/src/*', `./${FOLDER_NAME}/src`)
-    cpx.copySync('./setup/README.md', `./${FOLDER_NAME}`)
-    cpx.copySync('./setup/.eslintrc', `./${FOLDER_NAME}`)
-    cpx.copySync('./setup/.babelrc', `./${FOLDER_NAME}`)
-    cpx.copySync('./setup/.gitignore', `./${FOLDER_NAME}`)
-    cpx.copySync('./setup/webpack.config.js', `./${FOLDER_NAME}`)
-
-    sh.set('+e')
+    sh.cp('-r', './setup/src/', `./${FOLDER_NAME}/src`)
+    sh.cp('./setup/README.md', `./${FOLDER_NAME}`)
+    sh.cp('./setup/.eslintrc', `./${FOLDER_NAME}`)
+    sh.cp('./setup/.babelrc', `./${FOLDER_NAME}`)
+    sh.cp('./setup/.gitignore', `./${FOLDER_NAME}`)
+    sh.cp('./setup/webpack.config.js', `./${FOLDER_NAME}`)
 
     return answers
   },
