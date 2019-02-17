@@ -3,51 +3,11 @@ const sh = require('shelljs')
 const project = require('./project-package')
 const beautify = require('json-beautify')
 const cpx = require('cpx')
-
-const doesProjectExist = folder => sh.test('-d', `./${folder}`)
-
-const ask = async () => {
-  const questions = [{
-    name: 'AUTHOR_NAME',
-    type: 'input',
-    message: "Author's name?",
-  },
-  {
-    name: 'PROJECT_NAME',
-    type: 'input',
-    message: 'Project name?',
-  },
-  {
-    name: 'PROJECT_DESCRIPTION',
-    type: 'input',
-    message: 'Project description?',
-  },
-  {
-    name: 'FOLDER_NAME',
-    type: 'input',
-    message: 'Project folder name?',
-    default: function(answers) {
-      return answers.PROJECT_NAME || 'project'
-    },
-  },
-  {
-    name: 'RESET_FOLDER',
-    type: 'confirm',
-    message: 'Remove existing folder?',
-    default: true,
-    when: function (answers) {
-      const folder = answers.FOLDER_NAME
-      return doesProjectExist(folder)
-    },
-  },
-  ]
-
-  return inquirer.prompt(questions)
-}
+const { questions, doesProjectExist, } = require('./inquirer-questions')
 
 module.exports = {
-  create: async () => {
-    const answers = await ask()
+  create: async (promts = questions) => {
+    const answers = await inquirer.prompt(promts)
     const {
       AUTHOR_NAME,
       PROJECT_NAME,
