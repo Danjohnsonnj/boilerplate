@@ -1,8 +1,8 @@
 {
   "name": "boilerplate",
-  "description": "Boilerplate with Webpack and Babel",
+  "description": "Boilerplate project creator with Webpack, Babel and LESS",
   "author": "Daniel Johnson",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
